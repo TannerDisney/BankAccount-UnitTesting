@@ -56,5 +56,15 @@ namespace BankAccountUnitTesting.Tests
             // Assert
             Assert.AreEqual(expectedBalance, depositAmount);
         }
+
+        [TestMethod()]
+        public void Deposit_NegativeAmount_ThrowsException()
+        {
+            Account Checking = new Account();
+            double depositAmount = -50;
+
+            Assert.ThrowsException<ArgumentException>
+                (() => Checking.Deposit(depositAmount));
+        }
     }
 }
